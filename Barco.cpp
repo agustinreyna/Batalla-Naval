@@ -6,7 +6,7 @@
     }
 
     Barco::~Barco(){
-        cout<<"Se destruyo un barco"<<endl;
+        cout<<"Se destruyo un barco ..."<<endl;
     }
 
     void Barco::setEstado(bool _estado){
