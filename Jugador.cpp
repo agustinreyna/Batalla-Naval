@@ -28,7 +28,9 @@ using namespace std;
     void Jugador::setBotes(){
         int i;
         for(i=0;i<3;i++){
-            bote[i].setPosicion();
+            //bote[i].cargarP(P);
+            bote[i].setPosicion(P);
+            P[bote[i].getF()][bote[i].getC()]=true;
         }
     }
 
@@ -37,8 +39,17 @@ using namespace std;
         for(i=0;i<3;i++){
             cout<<"Decime si la fragata va a estar horizontal(0) o vertical(1)"<<endl;
             cin>>k;
-            if(k==0)fragata[i].setPosicionH();
-            else fragata[i].setPosicionV();
+            //fragata[i].cargarP(P);
+            if(k==0){
+                fragata[i].setPosicionH(P);
+                P[fragata[i].getF(0)][fragata[i].getC(0)]=true;
+                P[fragata[i].getF(1)][fragata[i].getC(1)]=true;
+            }
+            else {
+                fragata[i].setPosicionV(P);
+                P[fragata[i].getF(0)][fragata[i].getC(0)]=true;
+                P[fragata[i].getF(1)][fragata[i].getC(1)]=true;
+            }
         }
     }
 
@@ -47,8 +58,19 @@ using namespace std;
         for(i=0;i<2;i++){
             cout<<"Decime si el buque va a estar horizontal(0) o vertical(1)"<<endl;
             cin>>k;
-            if(k==0)buque[i].setPosicionH();
-            else buque[i].setPosicionV();
+            //buque[i].cargarP(P);
+            if(k==0){
+                buque[i].setPosicionH(P);
+                P[buque[i].getF(0)][buque[i].getC(0)]=true;
+                P[buque[i].getF(1)][buque[i].getC(1)]=true;
+                P[buque[i].getF(2)][buque[i].getC(2)]=true;
+            }
+            else {
+                buque[i].setPosicionV(P);
+                P[buque[i].getF(0)][buque[i].getC(0)]=true;
+                P[buque[i].getF(1)][buque[i].getC(1)]=true;
+                P[buque[i].getF(2)][buque[i].getC(2)]=true;
+            }
         }
     }
 
@@ -115,6 +137,35 @@ using namespace std;
             }
         }
         cout<<"Agua!!!"<<endl;
+    }
+
+    bool Jugador::posicionValida(int f1,int c1){
+        int k,i,Fila,Columna;
+        for(k=0;k<3;k++){
+            if(bote[k].getF()==f1 && bote[k].getC()==c1){
+                return false;
+            }
+        }
+
+        for(i=0;i<3;i++){
+            for(k=0;k<2;k++){
+            Fila=fragata[i].getF(k);
+            Columna=fragata[i].getC(k);
+            if(Fila==f1 && Columna==c1){
+                return false;
+            }
+        }
+        }
+        for(i=0;i<2;i++){
+            for(k=0;k<3;k++){
+                Fila=buque[i].getF(k);
+                Columna=buque[i].getC(k);
+                if(Fila==f1 && Columna==c1){
+                return false;
+                }
+            }
+        }
+        return true;
     }
         
     

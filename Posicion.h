@@ -6,6 +6,7 @@ using namespace std;
 class Posicion{
     private:
         bool disparado=false;
+        bool ocupado=false;
         int i,j;
     public:
         Posicion();
@@ -14,5 +15,7 @@ class Posicion{
         int getColumna();
         void Disparado();
         bool getDisparado();
+        void Ocupado();
+        bool getOcupado();
 };
 #endif

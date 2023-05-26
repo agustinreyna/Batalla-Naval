@@ -8,13 +8,14 @@ using namespace std;
 class Bote:public Barco{
     private:
         Posicion posicion[1];
+        bool p[10][10]={};
         int vidas;
         const int tamanio=1;
     public:
         Bote();
         ~Bote();
         int getVidas();
-        void setPosicion();
+        void setPosicion(bool[10][10]);
         void Atacado();
         void mostrar();
         int getF();

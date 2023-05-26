@@ -25,3 +25,11 @@ using namespace std;
     bool Posicion::getDisparado(){
         return disparado;
     }
+
+    void Posicion::Ocupado(){
+        ocupado=true;
+    }
+
+    bool Posicion::getOcupado(){
+        return ocupado;
+    }

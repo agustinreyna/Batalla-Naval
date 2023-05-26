@@ -13,22 +13,26 @@ using namespace std;
         return vidas;
     }
 
-    void Fragata::setPosicionH(){
+    void Fragata::setPosicionH(bool p[10][10]){
         int i,j;
         cout<<"Decime la fila y columna donde esta el bote: "<<endl;
+        do{
         cin>>i;
         cin>>j;
+        }while(p[i][j] || p[i][j+1]);
         posicion[0].setPosicion(i,j);
         j++;
         posicion[1].setPosicion(i,j);
         cout<<endl;
     }
 
-    void Fragata::setPosicionV(){
+    void Fragata::setPosicionV(bool p[10][10]){
         int i,j;
         cout<<"Decime la fila y columna donde esta el bote: "<<endl;
+        do{
         cin>>i;
         cin>>j;
+        }while(p[i][j] || p[i+1][j]);
         posicion[0].setPosicion(i,j);
         i++;
         posicion[1].setPosicion(i,j);

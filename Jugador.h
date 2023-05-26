@@ -9,6 +9,7 @@ using namespace std;
 class Jugador{
     private:
         char M[10][10];
+        bool P[10][10]={};
         Buque buque[2];
         Fragata fragata[3];
         Bote bote[3];
@@ -24,5 +25,6 @@ class Jugador{
         void mostrarFragatas();
         void mostrarBuques();
         void atacado();
+        bool posicionValida(int,int);
 };
 #endif

@@ -13,11 +13,13 @@ using namespace std;
         return vidas;
     }
 
-    void Buque::setPosicionH(){
+    void Buque::setPosicionH(bool p[10][10]){
         int i,j;
         cout<<"Decime la fila y columna donde esta el bote: "<<endl;
+        do{
         cin>>i;
         cin>>j;
+        }while(p[i][j] || p[i][j+1] || p[i][j+2]);
         posicion[0].setPosicion(i,j);
         j++;
         posicion[1].setPosicion(i,j);
@@ -26,11 +28,13 @@ using namespace std;
         cout<<endl;
     }
 
-    void Buque::setPosicionV(){
+    void Buque::setPosicionV(bool p[10][10]){
         int i,j;
         cout<<"Decime la fila y columna donde esta el bote: "<<endl;
+        do{
         cin>>i;
         cin>>j;
+        }while(p[i][j] || p[i+1][j] || p[i+2][j]);
         posicion[0].setPosicion(i,j);
         i++;
         posicion[1].setPosicion(i,j);

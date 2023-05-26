@@ -13,13 +13,15 @@ using namespace std;
         return vidas;
     }
 
-    void Bote::setPosicion(){
+    void Bote::setPosicion(bool p[10][10]){
         int i,j;
-        cout<<"Decime la fila y columna donde esta el bote: "<<endl;
+        cout<<"Decime la fila y columna donde esta el bote"<<endl;
+        do{
         cin>>i;
         cin>>j;
+        }while(p[i][j]);
         posicion[0].setPosicion(i,j);
-        cout<<endl;
+        cout<<endl; 
     }
 
     void Bote::Atacado(){
@@ -45,3 +47,4 @@ using namespace std;
     bool Bote::getDisparado(){
         return posicion[0].getDisparado();
     }
+
