@@ -15,7 +15,7 @@ using namespace std;
 
     void Fragata::setPosicionH(bool p[10][10]){
         int i,j;
-        cout<<"Decime la fila y columna donde esta el bote: "<<endl;
+        cout<<"Decime la fila y columna donde esta la fragata: "<<endl;
         do{
         cin>>i;
         cin>>j;
@@ -28,7 +28,7 @@ using namespace std;
 
     void Fragata::setPosicionV(bool p[10][10]){
         int i,j;
-        cout<<"Decime la fila y columna donde esta el bote: "<<endl;
+        cout<<"Decime la fila y columna donde esta la fragata: "<<endl;
         do{
         cin>>i;
         cin>>j;

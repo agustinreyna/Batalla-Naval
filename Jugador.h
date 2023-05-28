@@ -16,15 +16,16 @@ class Jugador{
         string nombre;
     public:
         Jugador();
-        void perdio();
-        void setNombre(string);
+        bool perdio();
+        void setNombre();
+        string getNombre();
         void setBotes();
         void setFragatas();
         void setBuques();
         void mostrarBotes();
         void mostrarFragatas();
         void mostrarBuques();
-        void atacado();
-        bool posicionValida(int,int);
+        void atacado(int,int);
+        void mostrarM();
 };
 #endif

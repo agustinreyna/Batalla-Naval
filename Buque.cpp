@@ -15,7 +15,7 @@ using namespace std;
 
     void Buque::setPosicionH(bool p[10][10]){
         int i,j;
-        cout<<"Decime la fila y columna donde esta el bote: "<<endl;
+        cout<<"Decime la fila y columna donde esta el buque: "<<endl;
         do{
         cin>>i;
         cin>>j;
@@ -30,7 +30,7 @@ using namespace std;
 
     void Buque::setPosicionV(bool p[10][10]){
         int i,j;
-        cout<<"Decime la fila y columna donde esta el bote: "<<endl;
+        cout<<"Decime la fila y columna donde esta el buque: "<<endl;
         do{
         cin>>i;
         cin>>j;
