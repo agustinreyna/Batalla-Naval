@@ -22,7 +22,7 @@ int cambioTurno(int turno){//FUNCION QUE CAMBIA EL TURNO
 
 int main(int argc, char const *argv[])
 {
-    /*Jugador jugador[2];//SE DECLARA UN ARREGLO DE 2 JUGADORES
+    Jugador jugador[2];//SE DECLARA UN ARREGLO DE 2 JUGADORES
     int i,j,k,fila,columna,turno=0;
     for(i=0;i<2;i++){//SE PIDE LA INFORMACION DE CADA JUGADOR
         cout<<"INFORMACION DEL JUGADOR "<<i+1<<endl;
@@ -62,11 +62,6 @@ int main(int argc, char const *argv[])
             cout<<"El jugador "<<jugador[turno].getNombre()<<" gano!"<<endl;
             return 0;
         }
-    }while(k!=4);*/
-    Jugador jugador;
-    jugador.setBotes();
-    jugador.setFragatas();
-    jugador.mostrarBotes();
-    jugador.mostrarFragatas();
+    }while(k!=4);
     return 0;
 }
