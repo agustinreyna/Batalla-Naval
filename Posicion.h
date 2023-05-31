@@ -6,16 +6,13 @@ using namespace std;
 class Posicion{
     private:
         bool disparado=false;
-        bool ocupado=false;
-        int i,j;
+        int i,j;//FILA Y COLUMNA 
     public:
         Posicion();
-        void setPosicion(int,int);
-        int getFila();
-        int getColumna();
-        void Disparado();
-        bool getDisparado();
-        void Ocupado();
-        bool getOcupado();
+        void setPosicion(int,int);//SE SETEA EL I,J A PARTIR DE PARAMETROS DADOS POR EL USUARIO
+        int getFila();//DEVUELVE LA FILA
+        int getColumna();//DEVUELVE LA COLUMNA
+        void Disparado();//SETEA EL VALOR DE DISPARADO A TRUE
+        bool getDisparado();//DEVUELVE EL VALOR DE DISPARADO
 };
 #endif

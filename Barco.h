@@ -3,14 +3,10 @@
 #include <iostream>
 using namespace std;
 
-class Barco{
-    private:
-        bool estado;
+class Barco{//SUPERCLASE BARCO
     public:
         Barco();
         ~Barco();
-        void setEstado(bool);
-        bool getEstado();
 };
 
 #endif

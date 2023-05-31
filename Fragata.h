@@ -7,20 +7,18 @@ using namespace std;
 
 class Fragata:public Barco{
     private:
-        bool p[10][10];
-        Posicion posicion[2];
+        Posicion posicion[2];//COMO LA FRAGATA ES MAS GRANDE QUE EL BOTE OCUPA 2 POSICIONES QUE PUEDEN SER HORIZONTALES O VERTICALES
         int vidas;
-        const int tamanio=2;
     public:
         Fragata();
         ~Fragata();
         int getVidas();
-        void setPosicionH(bool[10][10]);
-        void setPosicionV(bool[10][10]);
-        void Atacado();
-        void mostrar();
-        int getF(int);
-        int getC(int);
+        void setPosicionH(bool[10][10]);//SETEA LA POSICION HORIZONTAL DE LA FRAGATA
+        void setPosicionV(bool[10][10]);//SETEA LA POSICION VERTICAL DE LA FRAGATA 
+        void Atacado();//SE LE RESTAN VIDAS A LA FRAGATA
+        void mostrar();//SE MUESTRA LAS POSICIONES DE LA FRAGATA
+        int getF(int);//EL PARAMETRO ES USADO PARA SELECCIONAR LA POSICION
+        int getC(int);//EL PARAMETRO ES USADO PARA SELECCIONAR LA POSICION
         void setDisparado(int);
         bool getDisparado(int);
 };

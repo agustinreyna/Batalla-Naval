@@ -19,17 +19,17 @@ using namespace std;
         do{
         cin>>i;
         cin>>j;
-        }while(p[i][j]);
+        }while(p[i][j] || i>9 || i<0 || j>9 || j<0);//LA PRIMER CONDICION CHEQUEA QUE LA POSICION (i,j) DE LA MATRIZ DE BOOLEANOS NO SEA VERDADERA,YA QUE EN ESE CASO LA CASILLA ESTARIA OCUPADA
         posicion[0].setPosicion(i,j);
         cout<<endl; 
     }
 
     void Bote::Atacado(){
-        vidas--;
+        vidas--;//SI EL BOTE ES ATACADO SE LE RESTA UNA VIDA
     }
 
     void Bote::mostrar(){
-        cout<<"FILA "<<posicion[0].getFila()<<","<<"COLUMNA "<<posicion[0].getColumna()<<endl;
+        cout<<"FILA "<<posicion[0].getFila()<<","<<"COLUMNA "<<posicion[0].getColumna()<<endl;//MUESTRA LA UNICA POSICION DEL BOTE
     }
 
     int Bote::getF(){
@@ -41,7 +41,7 @@ using namespace std;
     }
 
     void Bote::setDisparado(){
-        posicion[0].Disparado();
+        posicion[0].Disparado();//SETEA EL VALOR DEL ATRIBUTO DISPARADO DE LA CLASE POSICION A TRUE
     }
 
     bool Bote::getDisparado(){

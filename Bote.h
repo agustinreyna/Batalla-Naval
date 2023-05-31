@@ -5,22 +5,20 @@
 #include "Posicion.h"
 using namespace std;
 
-class Bote:public Barco{
+class Bote:public Barco{//SUBCLASE BOTE
     private:
-        Posicion posicion[1];
-        bool p[10][10]={};
-        int vidas;
-        const int tamanio=1;
+        Posicion posicion[1];//TIENE UNA SOLA POSICION DEBIDO A QUE ES EL BARCO MAS CHICO
+        int vidas;//CANTIDAD DE VIDAS DEL BOTE,LAS CUALES SON IGUALES A SU TAMAÑO
     public:
         Bote();
         ~Bote();
         int getVidas();
-        void setPosicion(bool[10][10]);
+        void setPosicion(bool[10][10]);//FUNCION PARA SELECCIONAR LA CASILLA DEL BOTE,TOMA DE PARAMETRO UNA MATRIZ PERTENECIENTE A LA CLASE JUGADOR PARA CORROBORAR QUE LA CASILLA NO ESTE OCUPADA
         void Atacado();
         void mostrar();
-        int getF();
-        int getC();
-        void setDisparado();
-        bool getDisparado();
+        int getF();//DEVUELVE LA UNICA FILA DEL BOTE YA QUE SOLO TIENE UNA POSICION
+        int getC();//DEVUELVE LA UNICA COLUMNA DEL BOTE YA QUE SOLO TIENE UNA POSICION
+        void setDisparado();//SETEA EL VALOR DEL ATRIBUTO "Disparado" DE LA CLASE POSICION A TRUE
+        bool getDisparado();//DEVUELVE EL VALOR DEL ATRIBUTO "Disparado"
 };
 #endif

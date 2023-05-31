@@ -5,16 +5,16 @@ using namespace std;
     Posicion::Posicion(){
     }
 
-    void Posicion::setPosicion(int _i,int _j){
+    void Posicion::setPosicion(int _i,int _j){//PARAMETROS DADOS POR EL USUARIO
         i=_i;
         j=_j;
     }
 
-    int Posicion::getFila(){
+    int Posicion::getFila(){//DEVUELVE LA FILA
         return i;
     }
 
-    int Posicion::getColumna(){
+    int Posicion::getColumna(){//DEVUELVE LA COLUMNA
         return j;
     }
 
@@ -24,12 +24,4 @@ using namespace std;
 
     bool Posicion::getDisparado(){
         return disparado;
-    }
-
-    void Posicion::Ocupado(){
-        ocupado=true;
-    }
-
-    bool Posicion::getOcupado(){
-        return ocupado;
     }
