@@ -34,5 +34,5 @@ Proyecto programacion 2
             <---Integrantes del grupo--->
 
 Agustin Reyna
-Santiago Tricherri Patocci
+Santiago Tricherri Patocchi
 Jeronimo Sanchez Carpio
