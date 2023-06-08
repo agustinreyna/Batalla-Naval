@@ -1,4 +1,4 @@
-#include <iostream>
+/*#include <iostream>
 #include "Fragata.h"
 using namespace std;
 
@@ -63,3 +63,4 @@ using namespace std;
     bool Fragata::getDisparado(int k){//DEVUELVE EL VALOR "Disparado" DE UNA CASILLA
         return posicion[k].getDisparado();
     }
+*/

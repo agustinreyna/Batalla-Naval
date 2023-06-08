@@ -1,4 +1,4 @@
-#ifndef FRAGATA_H
+/*#ifndef FRAGATA_H
 #define FRAGATA_H
 #include <iostream>
 #include "Barco.h"
@@ -13,14 +13,14 @@ class Fragata:public Barco{
         Fragata();
         ~Fragata();
         int getVidas();
-        void setPosicionH(bool[10][10]);//SETEA LA POSICION HORIZONTAL DE LA FRAGATA
-        void setPosicionV(bool[10][10]);//SETEA LA POSICION VERTICAL DE LA FRAGATA 
+        void setPosicionHF(bool[10][10]);//SETEA LA POSICION HORIZONTAL DE LA FRAGATA
+        void setPosicionVF(bool[10][10]);//SETEA LA POSICION VERTICAL DE LA FRAGATA 
         void Atacado();//SE LE RESTAN VIDAS A LA FRAGATA
-        void mostrar();//SE MUESTRA LAS POSICIONES DE LA FRAGATA
+        void mostrarF();//SE MUESTRA LAS POSICIONES DE LA FRAGATA
         int getF(int);//EL PARAMETRO ES USADO PARA SELECCIONAR LA POSICION
         int getC(int);//EL PARAMETRO ES USADO PARA SELECCIONAR LA POSICION
         void setDisparado(int);
         bool getDisparado(int);
 };
 
-#endif
+#endif*/

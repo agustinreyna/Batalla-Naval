@@ -17,15 +17,17 @@ using namespace std;
         int i;
         bool perdio=true;
 
-        for(i=0;i<2;i++){//ESTE FOR VA DE 0 A 1 YA QUE SOLO HAY DOS BUQUES
-            if(buque[i].getVidas()!=0)perdio=false;//SI ALGUNO DE LOS BUQUES TIENE MAS DE 0 VIDAS ENTONCES EL JUGADOR NO PERDIO 
+        for(i=0;i<3;i++){
+            if(barcos[i].getVidas()!=0)perdio=false;
+        }
+        
+        for(i=3;i<6;i++){
+            if(barcos[i].getVidas()!=0)perdio=false;
         }
 
-        for(i=0;i<3;i++){//ESTE FOR VA DE 0 A 2 YA QUE HAY TRES FRAGATAS Y BUQUES
-            if(fragata[i].getVidas()!=0)perdio=false;//SI ALGUNO DE LAS FRAGATAS TIENE MAS DE 0 VIDAS ENTONCES EL JUGADOR NO PERDIO 
-            if(bote[i].getVidas()!=0)perdio=false;//SI ALGUNO DE LOS BOTES TIENE MAS DE 0 VIDAS ENTONCES EL JUGADOR NO PERDIO 
+        for(i=6;i<8;i++){
+            if(barcos[i].getVidas()!=0)perdio=false;
         }
-
         return perdio;
     }
 
@@ -40,7 +42,62 @@ using namespace std;
         return nombre;
     }
 
-    void Jugador::setBotes(){
+    void Jugador::setBarcos(){
+        int i,k;
+        for(i=0;i<3;i++){
+            barcos[i].setPosicionBote(P);
+            P[barcos[i].getF(0)][barcos[i].getC(0)]=true;//SE MODIFICA LA MATRIZ DE BOOLS PARA QUE ESTE ACTUALIZADA
+            M[barcos[i].getF(0)][barcos[i].getC(0)]='O';//SE COLOCA UN "O" EN EL TABLERO REPRESENTANDO UN BOTE
+        }
+
+        for(i=3;i<6;i++){
+            do{
+            cout<<"Decime si la fragata va a estar horizontal(0) o vertical(1)"<<endl;
+            cin>>k;
+            }while(k!=0 && k!=1);//ESTA CONDICION SIRVE PARA QUE EL USUARIO SOLO PUEDA INGRESAR 1 O 0
+            if(k==0){//SI ELIGIO 0 ENTONCES HORIZONTAL
+                barcos[i].setPosicionHF(P);
+                P[barcos[i].getF(0)][barcos[i].getC(0)]=true;//SE MODIFICA LA MATRIZ DE BOOLS PARA QUE ESTE ACTUALIZADA
+                P[barcos[i].getF(1)][barcos[i].getC(1)]=true;//SE MODIFICA LA MATRIZ DE BOOLS PARA QUE ESTE ACTUALIZADA
+                M[barcos[i].getF(0)][barcos[i].getC(0)]='F';//SE COLOCA UN "F" EN EL TABLERO REPRESENTANDO UNA FRAGATA
+                M[barcos[i].getF(1)][barcos[i].getC(1)]='F';//SE COLOCA UN "F" EN EL TABLERO REPRESENTANDO UNA FRAGATA
+            }
+            else {//SI ELIGIO 1 ENTONCES VERTICAL
+                barcos[i].setPosicionVF(P);
+                P[barcos[i].getF(0)][barcos[i].getC(0)]=true;//SE MODIFICA LA MATRIZ DE BOOLS PARA QUE ESTE ACTUALIZADA
+                P[barcos[i].getF(1)][barcos[i].getC(1)]=true;//SE MODIFICA LA MATRIZ DE BOOLS PARA QUE ESTE ACTUALIZADA
+                M[barcos[i].getF(0)][barcos[i].getC(0)]='F';//SE COLOCA UN "F" EN EL TABLERO REPRESENTANDO UNA FRAGATA
+                M[barcos[i].getF(1)][barcos[i].getC(1)]='F';//SE COLOCA UN "F" EN EL TABLERO REPRESENTANDO UNA FRAGATA
+            }
+        }
+
+        for(i=6;i<8;i++){
+            do{
+            cout<<"Decime si el buque va a estar horizontal(0) o vertical(1)"<<endl;
+            cin>>k;
+            }while(k!=0 && k!=1);
+            if(k==0){//SI ELIGIO 0 ENTONCES HORIZONTAL
+                barcos[i].setPosicionHBuque(P);
+                P[barcos[i].getF(0)][barcos[i].getC(0)]=true;;//SE MODIFICA LA MATRIZ DE BOOLS PARA QUE ESTE ACTUALIZADA
+                P[barcos[i].getF(1)][barcos[i].getC(1)]=true;;//SE MODIFICA LA MATRIZ DE BOOLS PARA QUE ESTE ACTUALIZADA
+                P[barcos[i].getF(2)][barcos[i].getC(2)]=true;;//SE MODIFICA LA MATRIZ DE BOOLS PARA QUE ESTE ACTUALIZADA
+                M[barcos[i].getF(0)][barcos[i].getC(0)]='B';//SE COLOCA UN "B" EN EL TABLERO REPRESENTANDO UN BUQUE
+                M[barcos[i].getF(1)][barcos[i].getC(1)]='B';//SE COLOCA UN "B" EN EL TABLERO REPRESENTANDO UN BUQUE
+                M[barcos[i].getF(2)][barcos[i].getC(2)]='B';//SE COLOCA UN "B" EN EL TABLERO REPRESENTANDO UN BUQUE
+            }
+            else {//SI ELIGIO 1 ENTONCES VERTICAL
+                barcos[i].setPosicionVBuque(P);
+                P[barcos[i].getF(0)][barcos[i].getC(0)]=true;;//SE MODIFICA LA MATRIZ DE BOOLS PARA QUE ESTE ACTUALIZADA
+                P[barcos[i].getF(1)][barcos[i].getC(1)]=true;;//SE MODIFICA LA MATRIZ DE BOOLS PARA QUE ESTE ACTUALIZADA
+                P[barcos[i].getF(2)][barcos[i].getC(2)]=true;;//SE MODIFICA LA MATRIZ DE BOOLS PARA QUE ESTE ACTUALIZADA
+                M[barcos[i].getF(0)][barcos[i].getC(0)]='B';//SE COLOCA UN "B" EN EL TABLERO REPRESENTANDO UN BUQUE
+                M[barcos[i].getF(1)][barcos[i].getC(1)]='B';//SE COLOCA UN "B" EN EL TABLERO REPRESENTANDO UN BUQUE
+                M[barcos[i].getF(2)][barcos[i].getC(2)]='B';//SE COLOCA UN "B" EN EL TABLERO REPRESENTANDO UN BUQUE
+            }
+        }
+    }
+
+    /*void Jugador::setBotes(){
         int i;
         for(i=0;i<3;i++){//FOR DE 3 PORQUE SON 3 BOTES
             bote[i].setPosicion(P);//P ES LA MATRIZ DE BOOLS
@@ -123,41 +180,54 @@ using namespace std;
             buque[i].mostrar();//SE MUESTRAN LAS POSICIONES
             cout<<"Y tiene "<<buque[i].getVidas()<<" vidas"<<endl;//SE MUESTRAN LAS VIDAS
         }
+    }*/
+
+    void Jugador::mostrarBarcos(){
+        int i;
+        for(i=0;i<3;i++){
+            barcos[i].mostrarBote();
+        }
+        for(i=3;i<6;i++){
+            barcos[i].mostrarFragata();
+        }
+        for(i=6;i<8;i++){
+            barcos[i].mostrarBuque();
+        }
     }
 
     void Jugador::atacado(int f1,int c1){//TOMA DE PARAMETROS UNA FILA Y COLUMNA INGRESADOS POR EL JUGADOR
         int k,i,Fila,Columna;
 
-        for(k=0;k<3;k++){//ESTE FOR ES PARA REFERIRSE A LOS BOTES
-            if(bote[k].getF()==f1 && bote[k].getC()==c1 && !bote[k].getDisparado()){//SI LA FILA Y COLUMNA DADAS COINCIDEN CON LAS DEL BOTE Y EL BOTE NO FUE DISPARADO PREVIAMENTE ENTONCES:
-                bote[k].Atacado();
-                bote[k].setDisparado();
+        for(i=0;i<3;i++){//ESTE FOR ES PARA REFERIRSE A LOS BOTES
+            if(barcos[i].getF(0)==f1 && barcos[i].getC(0)==c1 && !barcos[i].getDisparado(0)){//SI LA FILA Y COLUMNA DADAS COINCIDEN CON LAS DEL BOTE Y EL BOTE NO FUE DISPARADO PREVIAMENTE ENTONCES:
+                barcos[i].atacado();
+                barcos[i].setDisparado(0);
                 M[f1][c1]='X';//EN EL TABLERO SE COLOCA UNA "X" PARA REPRESENTAR QUE ESA POSICION FUE ATACADA
                 cout<<"Un bote fue disparado!!!"<<endl;
                 return;//TERMINA LA FUNCION
             }
         }
 
-        for(i=0;i<3;i++){//ESTE FOR ES PARA REFERIRSE A LAS FRAGATAS
+        for(i=3;i<6;i++){//ESTE FOR ES PARA REFERIRSE A LAS FRAGATAS
             for(k=0;k<2;k++){//ESTE FOR SE USA PARA REFERIRSE A UNA DE LAS DOS POSICIONES QUE TIENE LA FRAGATA
-            Fila=fragata[i].getF(k);//SE DEFINE LA VARIABLE FILA COMO UNA DE LAS DOS FILAS DE LA FRAGATA
-            Columna=fragata[i].getC(k);//SE DEFINE LA VARIABLE COLUMNA COMOM UNA DE LAS DOS COLUMNAS DE LA FRAGATA
-            if(Fila==f1 && Columna==c1 && !fragata[i].getDisparado(k)){//SI UNA DE LAS POSICIONES DE LA FRAGATA COINCIDE CON LA FILA Y COLUMNA QUE DIO EL USUARIO Y ESA CASILLA NO FUE ATACADA PREVIAMENTE ENTONCES:
-                fragata[i].Atacado();
-                fragata[i].setDisparado(k);
+            Fila=barcos[i].getF(k);//SE DEFINE LA VARIABLE FILA COMO UNA DE LAS DOS FILAS DE LA FRAGATA
+            Columna=barcos[i].getC(k);//SE DEFINE LA VARIABLE COLUMNA COMOM UNA DE LAS DOS COLUMNAS DE LA FRAGATA
+            if(Fila==f1 && Columna==c1 && !barcos[i].getDisparado(k)){//SI UNA DE LAS POSICIONES DE LA FRAGATA COINCIDE CON LA FILA Y COLUMNA QUE DIO EL USUARIO Y ESA CASILLA NO FUE ATACADA PREVIAMENTE ENTONCES:
+                barcos[i].atacado();
+                barcos[i].setDisparado(k);
                 M[f1][c1]='X';//EN EL TABLERO SE COLOCA UNA "X" PARA REPRESENTAR QUE ESA POSICION FUE ATACADA
                 cout<<"Una fragata fue disparada!!!"<<endl;
                 return;//TERMINA LA FUNCION
             }
         }
         }
-        for(i=0;i<2;i++){//ESTE FOR ES PARA REFERIRSE A LOS BUQUES
+        for(i=6;i<8;i++){//ESTE FOR ES PARA REFERIRSE A LOS BUQUES
             for(k=0;k<3;k++){//ESTE FOR SE USA PARA REFERIRSE A UNA DE LAS TRES POSICIONES QUE TIENE EL BUQUE
-                Fila=buque[i].getF(k);//SE DEFINE LA VARIABLE FILA COMO UNA DE LAS TRES FILAS DEL BUQUE
-                Columna=buque[i].getC(k);//SE DEFINE LA VARIABLE COLUMNA COMO UNA DE LAS TRES COLUMNAS
-                if(Fila==f1 && Columna==c1 && !buque[i].getDisparado(k)){//SI UNA DE LAS POSICIONES DEL BUQUE COINCIDE CON LA FILA Y COLUMNA QUE DIO EL USUARIO Y ESA CASILLA NO FUE ATACADA PREVIAMENTE ENTONCES:
-                    buque[i].Atacado();
-                    buque[i].setDisparado(k);
+                Fila=barcos[i].getF(k);//SE DEFINE LA VARIABLE FILA COMO UNA DE LAS TRES FILAS DEL BUQUE
+                Columna=barcos[i].getC(k);//SE DEFINE LA VARIABLE COLUMNA COMO UNA DE LAS TRES COLUMNAS
+                if(Fila==f1 && Columna==c1 && !barcos[i].getDisparado(k)){//SI UNA DE LAS POSICIONES DEL BUQUE COINCIDE CON LA FILA Y COLUMNA QUE DIO EL USUARIO Y ESA CASILLA NO FUE ATACADA PREVIAMENTE ENTONCES:
+                    barcos[i].atacado();
+                    barcos[i].setDisparado(k);
                     M[f1][c1]='X';//EN EL TABLERO SE COLOCA UNA "X" PARA REPRESENTAR QUE ESA POSICION FUE ATACADA
                     cout<<"Un buque fue disparado!!!"<<endl;
                     return;//TERMINA LA FUNCION

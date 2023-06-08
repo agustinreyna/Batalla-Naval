@@ -1,4 +1,4 @@
-#include <iostream>
+/*#include <iostream>
 #include "Buque.h"
 using namespace std;
 
@@ -68,3 +68,4 @@ using namespace std;
     bool Buque::getDisparado(int k){//MEDIANTE UN PARAMETRO DEVUELVE EL ATRIBUTO "Disparado"
         return posicion[k].getDisparado();
     }
+*/

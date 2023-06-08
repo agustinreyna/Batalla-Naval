@@ -27,9 +27,7 @@ int main(int argc, char const *argv[])
     for(i=0;i<2;i++){//SE PIDE LA INFORMACION DE CADA JUGADOR
         cout<<"INFORMACION DEL JUGADOR "<<i+1<<endl;
         jugador[i].setNombre();
-        jugador[i].setBotes();
-        jugador[i].setFragatas();
-        jugador[i].setBuques();
+        jugador[i].setBarcos();
     }
 
     do{

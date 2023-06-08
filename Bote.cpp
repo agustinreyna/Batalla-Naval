@@ -1,4 +1,4 @@
-#include <iostream>
+/*#include <iostream>
 #include "Bote.h"
 using namespace std;
 
@@ -25,7 +25,7 @@ using namespace std;
     }
 
     void Bote::Atacado(){
-        vidas--;//SI EL BOTE ES ATACADO SE LE RESTA UNA VIDA
+        vidas--;//SI EL BOTE ES ATACADO SE LE RESTA UNA VIDA 
     }
 
     void Bote::mostrar(){
@@ -46,5 +46,5 @@ using namespace std;
 
     bool Bote::getDisparado(){
         return posicion[0].getDisparado();
-    }
+    }*/
 
