@@ -1,8 +1,5 @@
 #include <iostream>
 #include <windows.h>//LIBRERIA PARA USAR FUNCIONES PARA LA CONSOLA
-#include "Bote.h"
-#include "Fragata.h"
-#include "Buque.h"
 #include "Jugador.h"
 
 void menu(int turno){//FUNCION MENU
