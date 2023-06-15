@@ -12,6 +12,7 @@ class Barco{//SUPERCLASE BARCO
         Barco();
         ~Barco();
         int getVidas();
+        void setVidas(int);
         void setPosicionBote(bool[10][10]);//FUNCION PARA SELECCIONAR LA CASILLA DEL BOTE,TOMA DE PARAMETRO UNA MATRIZ PERTENECIENTE A LA CLASE JUGADOR PARA CORROBORAR QUE LA CASILLA NO ESTE OCUPADA
         void setPosicionHF(bool[10][10]);//SETEA LA POSICION HORIZONTAL DE LA FRAGATA
         void setPosicionVF(bool[10][10]);//SETEA LA POSICION VERTICAL DE LA FRAGATA
@@ -25,6 +26,7 @@ class Barco{//SUPERCLASE BARCO
         int getC(int);
         void setDisparado(int);
         bool getDisparado(int);
+        Posicion getPosicion(int);
         
 };
 

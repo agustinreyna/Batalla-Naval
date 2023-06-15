@@ -14,10 +14,15 @@ class Jugador{
         Jugador();
         bool perdio();//DEVUELVE TRUE SI ES QUE EL JUGADOR PERDIO
         void setNombre();
+        void setNombreCPU();
         string getNombre();
         void setBarcos();
+        Barco getbarco(int);
         void mostrarBarcos();//MUESTRA LA POSICION Y LA VIDA DE LOS BARCOS
         void atacado(int,int);//FUNCION PARA ATACAR.DE PARAMETRO USA UNA FILA Y UNA COLUMNA PARA ATACAR DADAS POR EL USUARIO
         void mostrarM();//FUNCION PARA MOSTRAR TABLERO Y USA COLORES :)
+        void setM(int,int,char);
+        void setP(int,int);
+        bool getP(int,int);
 };
 #endif

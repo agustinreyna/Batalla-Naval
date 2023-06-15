@@ -11,6 +11,10 @@
         return vidas;
     }
 
+    void Barco::setVidas(int v){
+        vidas=v;
+    }
+
     void Barco::setPosicionBote(bool p[10][10]){
         int i,j;
         cout<<"Decime la fila y columna donde esta el bote"<<endl;
@@ -114,4 +118,8 @@
 
     bool Barco::getDisparado(int k){
         return posicion[k].getDisparado();
+    }
+
+    Posicion Barco::getPosicion(int k){
+        return posicion[k];
     }

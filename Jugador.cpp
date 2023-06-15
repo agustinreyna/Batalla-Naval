@@ -17,15 +17,7 @@ using namespace std;
         int i;
         bool perdio=true;
 
-        for(i=0;i<3;i++){
-            if(barcos[i].getVidas()!=0)perdio=false;
-        }
-        
-        for(i=3;i<6;i++){
-            if(barcos[i].getVidas()!=0)perdio=false;
-        }
-
-        for(i=6;i<8;i++){
+        for(i=0;i<8;i++){
             if(barcos[i].getVidas()!=0)perdio=false;
         }
         return perdio;
@@ -38,6 +30,10 @@ using namespace std;
         nombre=_nombre;
     }
 
+    void Jugador::setNombreCPU(){
+        nombre="CPU";
+    }
+
     string Jugador::getNombre(){
         return nombre;
     }
@@ -46,6 +42,7 @@ using namespace std;
         int i,k;
         for(i=0;i<3;i++){
             barcos[i].setPosicionBote(P);
+            barcos[i].setVidas(1);
             P[barcos[i].getF(0)][barcos[i].getC(0)]=true;//SE MODIFICA LA MATRIZ DE BOOLS PARA QUE ESTE ACTUALIZADA
             M[barcos[i].getF(0)][barcos[i].getC(0)]='O';//SE COLOCA UN "O" EN EL TABLERO REPRESENTANDO UN BOTE
         }
@@ -57,6 +54,7 @@ using namespace std;
             }while(k!=0 && k!=1);//ESTA CONDICION SIRVE PARA QUE EL USUARIO SOLO PUEDA INGRESAR 1 O 0
             if(k==0){//SI ELIGIO 0 ENTONCES HORIZONTAL
                 barcos[i].setPosicionHF(P);
+                barcos[i].setVidas(2);
                 P[barcos[i].getF(0)][barcos[i].getC(0)]=true;//SE MODIFICA LA MATRIZ DE BOOLS PARA QUE ESTE ACTUALIZADA
                 P[barcos[i].getF(1)][barcos[i].getC(1)]=true;//SE MODIFICA LA MATRIZ DE BOOLS PARA QUE ESTE ACTUALIZADA
                 M[barcos[i].getF(0)][barcos[i].getC(0)]='F';//SE COLOCA UN "F" EN EL TABLERO REPRESENTANDO UNA FRAGATA
@@ -64,6 +62,7 @@ using namespace std;
             }
             else {//SI ELIGIO 1 ENTONCES VERTICAL
                 barcos[i].setPosicionVF(P);
+                barcos[i].setVidas(2);
                 P[barcos[i].getF(0)][barcos[i].getC(0)]=true;//SE MODIFICA LA MATRIZ DE BOOLS PARA QUE ESTE ACTUALIZADA
                 P[barcos[i].getF(1)][barcos[i].getC(1)]=true;//SE MODIFICA LA MATRIZ DE BOOLS PARA QUE ESTE ACTUALIZADA
                 M[barcos[i].getF(0)][barcos[i].getC(0)]='F';//SE COLOCA UN "F" EN EL TABLERO REPRESENTANDO UNA FRAGATA
@@ -78,6 +77,7 @@ using namespace std;
             }while(k!=0 && k!=1);
             if(k==0){//SI ELIGIO 0 ENTONCES HORIZONTAL
                 barcos[i].setPosicionHBuque(P);
+                barcos[i].setVidas(3);
                 P[barcos[i].getF(0)][barcos[i].getC(0)]=true;;//SE MODIFICA LA MATRIZ DE BOOLS PARA QUE ESTE ACTUALIZADA
                 P[barcos[i].getF(1)][barcos[i].getC(1)]=true;;//SE MODIFICA LA MATRIZ DE BOOLS PARA QUE ESTE ACTUALIZADA
                 P[barcos[i].getF(2)][barcos[i].getC(2)]=true;;//SE MODIFICA LA MATRIZ DE BOOLS PARA QUE ESTE ACTUALIZADA
@@ -87,6 +87,7 @@ using namespace std;
             }
             else {//SI ELIGIO 1 ENTONCES VERTICAL
                 barcos[i].setPosicionVBuque(P);
+                barcos[i].setVidas(3);
                 P[barcos[i].getF(0)][barcos[i].getC(0)]=true;;//SE MODIFICA LA MATRIZ DE BOOLS PARA QUE ESTE ACTUALIZADA
                 P[barcos[i].getF(1)][barcos[i].getC(1)]=true;;//SE MODIFICA LA MATRIZ DE BOOLS PARA QUE ESTE ACTUALIZADA
                 P[barcos[i].getF(2)][barcos[i].getC(2)]=true;;//SE MODIFICA LA MATRIZ DE BOOLS PARA QUE ESTE ACTUALIZADA
@@ -97,6 +98,10 @@ using namespace std;
         }
     }
     
+    Barco Jugador::getbarco(int k){
+        return barcos[k];
+    }
+
     void Jugador::mostrarBarcos(){
         int i;
         for(i=0;i<3;i++){
@@ -170,4 +175,14 @@ using namespace std;
         color(hConsole,7);//ES PARA QUE LA CONSOLA VUELVA A SU COLOR NORMAL
     }
         
-    
+    void Jugador::setM(int i,int j,char x){
+        M[i][j]=x;
+    }
+
+    void Jugador::setP(int i,int j){
+        P[i][j]=true;
+    }
+
+    bool Jugador::getP(int i,int j){
+        return P[i][j];
+    }
